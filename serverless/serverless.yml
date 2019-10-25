@@ -67,6 +67,10 @@ package:
 functions:
   Start:
     handler: Start.handler_func
+  index:
+    handler: Start.handler_func
+    events:
+      - http: GET start
 
 
 plugins:
