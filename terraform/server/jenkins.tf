@@ -130,6 +130,7 @@ resource "aws_instance" "jenkins" {
   associate_public_ip_address = true
   subnet_id = "${aws_subnet.jenkins_subnet.id}"
   key_name = "vatGlobal"
+  iam_instance_profile = "lambda_jenkins_deploy_role_profile"
 
   tags = {
     Name = "HelloWorld"
