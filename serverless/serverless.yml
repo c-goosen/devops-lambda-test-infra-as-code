@@ -57,6 +57,12 @@ region: eu-west-1
 #    - exclude-me.py
 #    - exclude-me-dir/**
 
+package:
+  individually: true
+  exclude: 
+    - ./**
+  include:
+    - Start.py
 
 functions:
   Start:
