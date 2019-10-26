@@ -64,16 +64,28 @@ package:
   include:
     - Start.py
 
+# functions:
+#   Start:
+#     handler: Start.handler_func
+#   index:
+#     handler: Start.handler_func
+#     events:
+#     - http:
+#         path: /Start/
+#         method: GET
+#         cors: true
+
+
+# Functions
 functions:
-  Start:
+  serverless-api-sample:
+    name: ${self:service}-${self:provider.stage}-apigateway
     handler: Start.handler_func
-  index:
-    handler: Start.handler_func
+    timeout: 30
     events:
-    - http:
-        path: /Start/
-        method: GET
-        cors: true
+      - http:
+          path: 'v1/{proxy+}'
+          method: GET
  
 
 
