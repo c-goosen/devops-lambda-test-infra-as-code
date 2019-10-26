@@ -84,7 +84,8 @@ functions:
     timeout: 30
     events:
       - http:
-          path: 'v1/{proxy+}'
+          # path: 'v1/{proxy+}'
+          path: 'v1/Start'
           method: GET
  
 
