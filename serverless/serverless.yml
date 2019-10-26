@@ -70,7 +70,9 @@ functions:
   index:
     handler: Start.handler_func
     events:
-      - http: GET start
+      - http: 
+        path: start
+        method: get
 
 
 plugins:
