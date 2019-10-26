@@ -5,7 +5,7 @@ Deployment procedure
 =====================
 1) Run ```packer build``` in packer dir
 2) Run ```terraform deploy``` in terraform dir
-3) Log into vatglobal.christogoosen.co.za with user goose
+3) Log into http://jenkins.devopstest.christogoosen.co.za/ with user goose
 4) Run jenkins job: deployLambdaVAT
 
 All of these were already deployed, but this is a note of deploying this workflow
@@ -27,6 +27,6 @@ aws lambda invoke --function-name "devops-lambda-test-dev-func" --log-type Tail 
 
 Invoke Lambda http/ApiGateway
 ============================
-http://vatlambda.christogoosen.co.za
+http://lambda.devopstest.christogoosen.co.za/
 or
 URL from jenkins deplot output

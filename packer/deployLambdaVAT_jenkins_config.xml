@@ -8,7 +8,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/jason-vg/devops-lambda-test.git</url>
+        <url>https://github.com/c-goosen/devops-lambda-test.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -33,27 +33,19 @@ cp requirement.txt build_dir/
 cp Start.py build_dir/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>mkdir devops-lambda-test
-git clone https://github.com/c-goosen/devops-lambda-test.git devops-lambda-test
-cp devops-lambda-test/serverless/serverless.yml build_dir/</command>
+      <command>mkdir devops-lambda-test-infra
+git clone https://github.com/c-goosen/devops-lambda-test-infra-as-code.git devops-lambda-test-infra
+cp devops-lambda-test-infra/serverless/serverless.yml build_dir/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>npm install --save serverless-python-requirements
-serverless --help
-#serverless deploy function --function lambdaDevOpstest --stage dev --region eu-west-1
 
 cd build_dir
 ls
-serverless deploy --config serverless.yml</command>
+serverless deploy --config serverless.yml --verbose</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.29">
-      <recipients>christogoosen@gmail.com</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.37">
       <deleteDirs>false</deleteDirs>
